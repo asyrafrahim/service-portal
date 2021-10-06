@@ -24,4 +24,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/services', 'ServiceController@index')->name('services:index');
 Route::get('/services/create', 'ServiceController@create')->name('services:create');
-Route::post('/services/store', 'ServiceController@store')->name('services:store');
+Route::post('/services/create', 'ServiceController@store')->name('services:store');
