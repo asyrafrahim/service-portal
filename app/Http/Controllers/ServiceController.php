@@ -14,7 +14,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::all();
+        return view('services.index')->with(compact('services'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('services.create');
     }
 
     /**
@@ -35,7 +36,14 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $service = new Service();
+        $service->title = $request->get('title');
+        $service->description = $request->get('description');
+        $service->attachment_1 = $request->get('attachment_1');
+        $service->attachment_2 = $request->get('attachment_2');
+        $service->save();
+
+        return redirect('/services');
     }
 
     /**

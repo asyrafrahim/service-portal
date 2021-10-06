@@ -10,4 +10,5 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'description', 'attachment_1', 'attachment_2'];
+    protected $table = 'services';
 }
