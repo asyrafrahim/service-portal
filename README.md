@@ -82,3 +82,5 @@ ii) Admin
         -View, add, edit, delete services
     3. Appointment
         -View appointment, accept or reject appointment made by users.
+
+<p align="center"><img src="https://i.imgur.com/gNfTcRn.jpg"></a></p>
