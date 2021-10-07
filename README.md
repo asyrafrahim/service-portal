@@ -62,3 +62,23 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Business Rule
+
+i) User
+    1. Register
+        -Fill in name, email, contact number, password
+    2. Login
+        -Fill in email, password
+    3. Service
+        -View services by categories
+    4. Appointment
+        -Make appointment, select service, date and time
+
+ii) Admin
+    1. Login
+        -Fill in email(admin@admin.com), password(abc123456)
+    2. Service
+        -View, add, edit, delete services
+    3. Appointment
+        -View appointment, accept or reject appointment made by users.

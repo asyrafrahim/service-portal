@@ -36,12 +36,23 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $service = new Service();
-        $service->title = $request->get('title');
-        $service->description = $request->get('description');
-        $service->attachment_1 = $request->get('attachment_1');
-        $service->attachment_2 = $request->get('attachment_2');
-        $service->save();
+        // $service = new Service();
+        // $service->title = $request->get('title');
+        // $service->description = $request->get('description');
+        // $service->attachment_1 = $request->get('attachment_1');
+        // $service->attachment_2 = $request->get('attachment_2');
+        // $service->save();
+        $input = $request->all();
+
+        $service = Service::create($input);
+
+        if($request->hasFile('attachment_1'))
+        {
+                $service->addMediaFromRequest('attachment_1')->toMediaCollection();
+
+        }
+
+        // dd($request);
 
         return redirect('/services');
     }

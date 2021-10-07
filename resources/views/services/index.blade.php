@@ -25,8 +25,12 @@
                     <tbody>
                         @foreach ($services as $service)
                         <tr>
-                            {{-- <td>{{ $service->id}}</td>
-                            <td>{{ $service->title}}</td> --}}
+                            <td>{{ $service->id}}</td>
+                            <td>{{ $service->title}}</td>
+                            <td>{{ $service->description}}</td>
+                            <td><img height="50" src="{{ $service->getFirstMediaUrl() }}"/></td>
+                            
+                            {{-- <td>{{ $service->attachment_1}}</td> --}}
                             
                             {{-- <td>{{ $service->user->name}}</td> --}}
                             <td>
