@@ -14,4 +14,13 @@ class Service extends Model implements HasMedia
 
     protected $fillable = ['title', 'description', 'attachment_1', 'attachment_2'];
     // protected $table = 'services';
+
+    public function appointment()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+    public function category()
+    {
+        return $this->belongsToMany(Category::class, 'service_category', 'service_id', 'category_id');
+    }
 }
