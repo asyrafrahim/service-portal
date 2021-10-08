@@ -17,11 +17,6 @@
                     {{ __('You are logged in!') }}
                 </div>
             </div>
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('services:index') }}">{{ __('Services') }}</a>
-                </li>
-            </ul>
         </div>
     </div>
 </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\User;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -14,7 +16,8 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        //
+        $appointments = Appointment::all();
+        return view('appointments.index')->with(compact('appointments'));
     }
 
     /**
@@ -24,7 +27,8 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        //
+        $services = Service::all();
+        return view('appointments.create')->with(compact('services'));
     }
 
     /**
@@ -35,7 +39,15 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $user = auth()->user();
+        $user->appointment()->create($request->all());
+
+        // $appointment = Appointment::create($input);
+
+        // dd($request);
+
+        return redirect('/appointments');
     }
 
     /**
@@ -57,7 +69,7 @@ class AppointmentController extends Controller
      */
     public function edit(Appointment $appointment)
     {
-        //
+        return view('appointments.edit')->with(compact('appointment'));
     }
 
     /**
@@ -69,7 +81,12 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, Appointment $appointment)
     {
-        //
+        // $user->update($request->only('title','description','attachment_1','attachment_2'));
+        // $appointment->update($request->only('title','description','attachment_1','attachment_2'));
+        // $appointment->update($request->only('appointment_time'));
+        return redirect()
+            ->route('services.index')
+            ->with(['alert-type' => 'alert-success','alert'=> 'Service updated']);
     }
 
     /**
@@ -80,6 +97,9 @@ class AppointmentController extends Controller
      */
     public function destroy(Appointment $appointment)
     {
-        //
+        $appointment->delete();
+
+        return redirect()->route('appointments.index')
+            ->with('success', 'Appointment deleted successfully');
     }
 }

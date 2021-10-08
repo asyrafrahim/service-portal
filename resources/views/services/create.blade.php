@@ -8,7 +8,7 @@
                 <div class="card-header">Create Service</div>
 
                 <div class="card-body">
-                    <form action="{{  route('services:store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{  route('services.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="title">Title</label>
@@ -25,6 +25,7 @@
                         <div class="form-group">
                             <label for="title">Attachment 2</label>
                             <input type="file" class="form-control" name="attachment_2">
+                        </div>
                         <div class="mt-4">
                             <button type="submit" class="btn btn-primary">Create New Service</button>
                             <a href="" class="btn btn-link">Cancel</a>

@@ -76,7 +76,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('services.edit')->with(compact('service'));
     }
 
     /**
@@ -88,7 +88,10 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $service->update($request->only('title','description','attachment_1','attachment_2'));
+        return redirect()
+            ->route('services.index')
+            ->with(['alert-type' => 'alert-success','alert'=> 'Service updated']);
     }
 
     /**
@@ -99,6 +102,9 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+
+        return redirect()->route('services.index')
+            ->with('success', 'Service deleted successfully');
     }
 }

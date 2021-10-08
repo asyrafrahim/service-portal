@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use phpDocumentor\Reflection\Types\Nullable;
 
-class CreateServiceCategoriesTable extends Migration
+class CreateCategoryServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +13,7 @@ class CreateServiceCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('service_categories', function (Blueprint $table) {
+        Schema::create('category_services', function (Blueprint $table) {
             $table->id();
             $table->foreignId('service_id')->constrained('services');
             $table->foreignId('category_id')->constrained('categories');
@@ -29,6 +28,6 @@ class CreateServiceCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('service_categories');
+        Schema::dropIfExists('category_services');
     }
 }

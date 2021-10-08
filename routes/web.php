@@ -22,6 +22,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/services', 'ServiceController@index')->name('services:index');
-Route::get('/services/create', 'ServiceController@create')->name('services:create');
-Route::post('/services/create', 'ServiceController@store')->name('services:store');
+// Route::get('/services', 'ServiceController@index')->name('services:index');
+// Route::get('/services/create', 'ServiceController@create')->name('services:create');
+// Route::post('/services/create', 'ServiceController@store')->name('services:store');
+// Route::get('/services/edit/{services}', 'ServiceController@edit')->name('services:edit');
+// Route::post('/services/edit/{services}', 'ServiceController@update')->name('services:update');
+Route::resource('services', ServiceController::class);
+Route::resource('categories', CategoryController::class);
+Route::resource('appointments', AppointmentController::class);

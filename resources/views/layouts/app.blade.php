@@ -26,6 +26,17 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+                
+                <div class="nav-item">
+                    <a class="nav-link" href="{{ route('services.index') }}">{{ __('Services') }}</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" href="{{ route('categories.index') }}">{{ __('Categories') }}</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" href="{{ route('appointments.index') }}">{{ __('Appointments') }}</a>
+                </div>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
