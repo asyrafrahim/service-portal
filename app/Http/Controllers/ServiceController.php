@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -43,7 +44,8 @@ class ServiceController extends Controller
         // $service->attachment_2 = $request->get('attachment_2');
         // $service->save();
         $input = $request->all();
-
+        $user = auth()->user();
+        $user->service()->create($request->all());
         $service = Service::create($input);
 
         if($request->hasFile('attachment_1') && $request->file('attachment_1')->isValid()) 

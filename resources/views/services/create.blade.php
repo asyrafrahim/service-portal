@@ -19,7 +19,7 @@
                             <textarea name="description" cols="20" rows="10" class="form-control"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="title">Attachment 1</label>
+                            <label for="title">Attachment</label>
                             <input type="file" class="form-control" name="attachment_1">
                         </div>
                         {{-- <div class="form-group">
