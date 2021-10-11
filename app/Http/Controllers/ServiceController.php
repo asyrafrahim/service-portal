@@ -46,15 +46,16 @@ class ServiceController extends Controller
 
         $service = Service::create($input);
 
-        if($request->hasFile('attachment_1'))
+        if($request->hasFile('attachment_1') && $request->file('attachment_1')->isValid()) 
         {
-                $service->addMediaFromRequest('attachment_1')->toMediaCollection();
+                $service->addMediaFromRequest('attachment_1')->toMediaCollection('attachment_1');
 
         }
+        return redirect()->route('services');
 
         // dd($request);
 
-        return redirect('/services');
+        // return redirect('/services');
     }
 
     /**

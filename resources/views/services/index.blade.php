@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card mt-5">
                 <div class="card-header">Service Index
                     
@@ -32,7 +32,8 @@
                             <td>{{ $service->id}}</td>
                             <td>{{ $service->title}}</td>
                             <td>{{ $service->description}}</td>
-                            <td><img height="50" src="{{ $service->getFirstMediaUrl() }}"/></td>
+                            {{-- <td>{{ $service->getFirstMediaUrl('attachment_1', 'thumb') }}</td> --}}
+                            <td><img height="50" width="120px" src="{{ $service->getFirstMediaUrl('attachment_1', 'thumb') }}" /></td>
                             
                             {{-- <td>{{ $service->attachment_1}}</td> --}}
                             

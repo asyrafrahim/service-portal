@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoryServicesTable extends Migration
+class CreateCategoryServiceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateCategoryServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_services', function (Blueprint $table) {
-            $table->id();
+        Schema::create('category_service', function (Blueprint $table) {
+            
             $table->foreignId('service_id')->constrained('services');
             $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();
@@ -28,6 +28,6 @@ class CreateCategoryServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_services');
+        Schema::dropIfExists('category_service');
     }
 }
