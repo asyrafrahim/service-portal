@@ -21,8 +21,8 @@
                         <th>ID</th>
                         <th>Title</th>
                         <th>Description</th>
-                        <th>Attachment 1</th>
-                        <th>Attachment 2</th>
+                        <th>Attachment</th>
+                        {{-- <th>Attachment 2</th> --}}
                         {{-- <th> action</th> --}}
                         </tr>
                     </thead>

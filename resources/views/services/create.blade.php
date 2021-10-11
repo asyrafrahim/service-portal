@@ -22,10 +22,10 @@
                             <label for="title">Attachment 1</label>
                             <input type="file" class="form-control" name="attachment_1">
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="title">Attachment 2</label>
                             <input type="file" class="form-control" name="attachment_2">
-                        </div>
+                        </div> --}}
                         <div class="mt-4">
                             <button type="submit" class="btn btn-primary">Create New Service</button>
                             <a href="" class="btn btn-link">Cancel</a>

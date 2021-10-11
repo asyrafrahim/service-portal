@@ -24,10 +24,10 @@
                             <label for="title">Attachment 1</label>
                             <input type="file" class="form-control" name="attachment_1" value="{{ $service->attachment_1 }}">
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="title">Attachment 2</label>
                             <input type="file" class="form-control" name="attachment_2" value="{{ $service->attachment_2 }}">
-                        </div>
+                        </div> --}}
                         <div class="form-group mt-4">
                             <button type="submit" class="btn btn-primary">Update Service</button>
                             <a href="{{ route('services.index') }}" class="btn btn-link">Cancel</a>
