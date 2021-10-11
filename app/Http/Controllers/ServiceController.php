@@ -89,7 +89,8 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        $service->update($request->only('title','description','attachment_1','attachment_2'));
+        // $service->update($request->only('title','description','attachment_1','attachment_2'));
+        $service->update($request->only('title','description','attachment_1'));
         return redirect()
             ->route('services.index')
             ->with(['alert-type' => 'alert-success','alert'=> 'Service updated']);
