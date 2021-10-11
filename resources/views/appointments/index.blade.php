@@ -22,7 +22,7 @@
                         <th>Name</th>
                         <th>Contact</th>
                         <th>Service</th>
-                        <th>Time</th>
+                        <th>Date and Time</th>
                         </tr>
                     </thead>
                     <tbody>
