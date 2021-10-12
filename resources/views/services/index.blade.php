@@ -19,7 +19,8 @@
                     <thead>
                         <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Servicer</th>
+                        <th>Category</th>
                         <th>Title</th>
                         <th>Description</th>
                         <th>Attachment</th>
@@ -32,8 +33,10 @@
                         <tr>
                             <td>{{ $service->id}}</td>
                             <td>{{ $service->user->name}}</td>
+                            <td>{{ implode(',', $service->categories->pluck('name')->all())}}</td>
                             <td>{{ $service->title}}</td>
                             <td>{{ $service->description}}</td>
+                            
                             {{-- <td>{{ $service->getFirstMediaUrl('attachment_1', 'thumb') }}</td> --}}
                             <td><img height="50" width="120px" src="{{ $service->getFirstMediaUrl('attachment_1', 'thumb') }}" /></td>
                             

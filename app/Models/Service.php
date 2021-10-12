@@ -24,7 +24,7 @@ class Service extends Model implements HasMedia
     // public function categoroies()
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'category_service', 'category_id', 'service_id');
+        return $this->belongsToMany(Category::class);
     }
     public function user()
     {

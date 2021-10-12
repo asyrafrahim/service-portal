@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,7 +28,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('services.create');
+        $categories = Category::all();
+        return view('services.create')->with(compact('categories'));
     }
 
     /**
@@ -53,7 +55,9 @@ class ServiceController extends Controller
         $service->title = $request->title;
         $service->description = $request->description;
         $service->user_id = Auth::user()->id;
+        
         $service->save();
+        $service->categories()->attach($request['category_id']);
 
         foreach ($request->file('attachment_1', []) as $key => $file)
         {
