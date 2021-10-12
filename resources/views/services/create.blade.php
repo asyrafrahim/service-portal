@@ -20,7 +20,7 @@
                         </div>
                         <div class="form-group">
                             <label for="title">Attachment</label>
-                            <input type="file" class="form-control" name="attachment_1">
+                            <input type="file" class="form-control" name="attachment_1[]" multiple>
                         </div>
                         {{-- <div class="form-group">
                             <label for="title">Attachment 2</label>

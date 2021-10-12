@@ -17,7 +17,7 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->string('attachment_1');
+            // $table->string('attachment_1');
             // $table->string('attachment_2');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();

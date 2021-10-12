@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
@@ -43,17 +44,31 @@ class ServiceController extends Controller
         // $service->attachment_1 = $request->get('attachment_1');
         // $service->attachment_2 = $request->get('attachment_2');
         // $service->save();
-        $input = $request->all();
-        $user = auth()->user();
-        $user->service()->create($request->all());
-        $service = Service::create($input);
+        // $input = $request->all();
+        // $user = auth()->user();
+        // $user->service()->create($request->all());
+        // $service = Service::create($input);
 
-        if($request->hasFile('attachment_1') && $request->file('attachment_1')->isValid()) 
+        $service = new Service();
+        $service->title = $request->title;
+        $service->description = $request->description;
+        $service->user_id = Auth::user()->id;
+        $service->save();
+
+        foreach ($request->file('attachment_1', []) as $key => $file)
         {
-                $service->addMediaFromRequest('attachment_1')->toMediaCollection('attachment_1');
+             $service->addMedia($file)
+                    ->toMediaCollection('attachment_1');
 
         }
-        return redirect()->route('services');
+
+        // if($request->hasFile('attachment_1') && $request->file('attachment_1')->isValid()) 
+        // {
+                
+        //     $service->addMediaFromRequest('attachment_1')->toMediaCollection('attachment_1');
+
+        // }
+        return redirect()->route('services.index');
 
         // dd($request);
 
