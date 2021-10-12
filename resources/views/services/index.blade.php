@@ -4,69 +4,73 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card mt-5">
                 <div class="card-header">Service Index
                     
                     <div class="float-right">
                         <a class="btn btn-primary" href="{{ route('services.create') }}" >+ Create New Service
-                            </a>
+                        </a>
                     </div>
-
-                <div class="card-body">
-
-                    <table class="table">
-                    <thead>
-                        <tr>
-                        <th>ID</th>
-                        <th>Servicer</th>
-                        <th>Category</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Attachment</th>
-                        {{-- <th>Attachment 2</th> --}}
-                        {{-- <th> action</th> --}}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($services as $service)
-                        <tr>
-                            <td>{{ $service->id}}</td>
-                            <td>{{ $service->user->name}}</td>
-                            <td>{{ implode(',', $service->categories->pluck('name')->all())}}</td>
-                            <td>{{ $service->title}}</td>
-                            <td>{{ $service->description}}</td>
-                            
-                            {{-- <td>{{ $service->getFirstMediaUrl('attachment_1', 'thumb') }}</td> --}}
-                            <td><img height="50" width="120px" src="{{ $service->getFirstMediaUrl('attachment_1', 'thumb') }}" /></td>
-                            
-                            {{-- <td>{{ $service->attachment_1}}</td> --}}
-                            
-                            {{-- <td>{{ $service->user->name}}</td> --}}
-                            <td>
-                                <form action="{{ route('services.destroy', $service->id) }}" method="POST">
-                                <a href="" class="btn btn-primary">Show</a>
-                                <a href="{{ route('services.edit', $service) }}" class="btn btn-success">Edit</a>
-                                @csrf
-                                @method('DELETE')
-                                {{-- <a href="{{ route('services.destroy', $service) }}" class="btn btn-danger"
-                                    onclick="return confirm('Are you sure?')">Delete</a> --}}
-                                    <button type="submit" title="delete" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
                     
-                        @endforeach
-
+                    <div class="card-body">
                         
-                    </tbody>
-                    </table>
-                
-                </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Servicer</th>
+                                    <th>Category</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Attachment</th>
+                                    {{-- <th>Attachment 2</th> --}}
+                                    {{-- <th> action</th> --}}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($services as $service)
+                                <tr>
+                                    <td>{{ $service->id}}</td>
+                                    <td>{{ $service->user->name}}</td>
+                                    <td>{{ implode(',', $service->categories->pluck('name')->all())}}</td>
+                                    <td>{{ $service->title}}</td>
+                                    <td>{{ $service->description}}</td>
+                                    
+                                    {{-- <td>{{ $service->getFirstMediaUrl('attachment_1', 'thumb') }}</td> --}}
+                                    {{-- <td><img height="50" width="120px" src="{{ $service->getFirstMediaUrl('attachment_1', 'thumb') }}" /></td> --}}
+                                    <td>@foreach ($service->getMedia('attachment_1') as $media)
+                                        <img width="140px"  src="{{ $media->getUrl('thumb') }}"/>
+                                        
+                                        @endforeach</td>
+                                        
+                                        {{-- <td>{{ $service->attachment_1}}</td> --}}
+                                        
+                                        {{-- <td>{{ $service->user->name}}</td> --}}
+                                        <td>
+                                            <form action="{{ route('services.destroy', $service->id) }}" method="POST">
+                                                <a href="" class="btn btn-primary">Show</a>
+                                                <a href="{{ route('services.edit', $service) }}" class="btn btn-success">Edit</a>
+                                                @csrf
+                                                @method('DELETE')
+                                                {{-- <a href="{{ route('services.destroy', $service) }}" class="btn btn-danger"
+                                                onclick="return confirm('Are you sure?')">Delete</a> --}}
+                                                <button type="submit" title="delete" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    
+                                    @endforeach
+                                    
+                                    
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-@endsection
+    
+    @endsection
