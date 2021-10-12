@@ -125,7 +125,9 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
+        $service->categories()->detach();
         $service->delete();
+
 
         return redirect()->route('services.index')
             ->with('success', 'Service deleted successfully');
