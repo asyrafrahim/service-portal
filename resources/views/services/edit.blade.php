@@ -20,10 +20,10 @@
                             <label for="title">Description</label>
                             <textarea name="description" cols="20" rows="10" class="form-control">{{ $service->description }}</textarea>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="title">Attachment 1</label>
                             <input type="file" class="form-control" name="attachment_1" value="{{ $service->attachment_1 }}">
-                        </div>
+                        </div> --}}
                         {{-- <div class="form-group">
                             <label for="title">Attachment 2</label>
                             <input type="file" class="form-control" name="attachment_2" value="{{ $service->attachment_2 }}">

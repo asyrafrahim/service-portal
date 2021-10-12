@@ -35,7 +35,7 @@
                             <td>{{ $service->title}}</td>
                             <td>{{ $service->description}}</td>
                             {{-- <td>{{ $service->getFirstMediaUrl('attachment_1', 'thumb') }}</td> --}}
-                            <td><img height="50" width="120px" src="{{ $service->getFirstMediaUrl('attachment_1', 'thumb') }}" /></td>
+                            <td><img height="50" width="120px" src="{{ $service->getFirstMediaUrl() }}" /></td>
                             
                             {{-- <td>{{ $service->attachment_1}}</td> --}}
                             
