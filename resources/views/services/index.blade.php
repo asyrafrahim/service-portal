@@ -19,6 +19,7 @@
                     <thead>
                         <tr>
                         <th>ID</th>
+                        <th>Name</th>
                         <th>Title</th>
                         <th>Description</th>
                         <th>Attachment</th>
@@ -30,6 +31,7 @@
                         @foreach ($services as $service)
                         <tr>
                             <td>{{ $service->id}}</td>
+                            <td>{{ $service->user->name}}</td>
                             <td>{{ $service->title}}</td>
                             <td>{{ $service->description}}</td>
                             {{-- <td>{{ $service->getFirstMediaUrl('attachment_1', 'thumb') }}</td> --}}
