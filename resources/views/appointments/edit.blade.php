@@ -21,8 +21,20 @@
                             </select>
                         </div> --}}
                         <div class="form-group">
+                            <label for="Services">Choose a service:</label>
+                            <select name="service_id" id="service_id">
+                                @foreach ($services as $service)
+                                    <option value="{{ $service->id }}">{{ $service->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="title">Date and Time</label>
                             <input type="datetime-local" id="appointment_time" name="appointment_time">
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Address</label>
+                            <input type="text" id="appointment_time" name="appointment_time" value="{{ $appointment->address }}">
                         </div>
                         <div class="form-group mt-4">
                             <button type="submit" class="btn btn-primary">Update Appointment</button>

@@ -23,6 +23,7 @@
                         <th>Contact</th>
                         <th>Service</th>
                         <th>Date and Time</th>
+                        <th>Adress</th>
                         <th>Action</th>
                         </tr>
                     </thead>
@@ -34,7 +35,7 @@
                             <td>{{ $appointment->user->contact}}</td>
                             <td>{{ $appointment->service->title}}</td>
                             <td>{{ $appointment->appointment_time}}</td>
-                            
+                            <td>{{ $appointment->address }}</td>
                             
                             <td>
                                 <form action="{{ route('appointments.destroy', $appointment->id) }}" method="POST">

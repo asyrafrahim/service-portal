@@ -18,6 +18,7 @@ class CreateAppointmentsTable extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('service_id')->constrained('services');
             $table->dateTime('appointment_time', $precision = 0);
+            $table->string('address');
             $table->timestamps();
         });
     }

@@ -69,9 +69,9 @@ class AppointmentController extends Controller
      */
     public function edit(Appointment $appointment)
     {
-        // $services = Service::all();
+        $services = Service::all();
         // $appointments = Appointment::all();
-        return view('appointments.edit')->with(compact('appointment'));
+        return view('appointments.edit')->with(compact('appointment', 'services'));
     }
 
     /**
@@ -86,7 +86,7 @@ class AppointmentController extends Controller
         // $user->update($request->only('title','description','attachment_1','attachment_2'));
         // $appointment->update($request->only('title','description','attachment_1','attachment_2'));
         // $appointment->update($request->only('appointment_time'));
-        $appointment->update($request->only('appointment_time'));
+        $appointment->update($request->only('service_id', 'appointment_time'));
         return redirect()
             ->route('appointments.index')
             ->with(['alert-type' => 'alert-success','alert'=> 'Appointment updated']);

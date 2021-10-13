@@ -24,6 +24,10 @@
                             <label for="title">Date and Time</label>
                             <input type="datetime-local" id="appointment_time" name="appointment_time">
                         </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address">
+                        </div>
                         
                         <div class="mt-4">
                             <button type="submit" class="btn btn-primary">Create New Appointment</button>
