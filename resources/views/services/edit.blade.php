@@ -14,7 +14,7 @@
                         @method('PUT')
                         <div class="form-group">
                             <label for="Services">Choose a category:</label>
-                            <select name="category_id" id="category_id" class='form-control' multiple>
+                            <select name="category_id[]" id="category_id" class='form-control' multiple>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
