@@ -20,6 +20,7 @@
                         <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,7 +30,7 @@
                             <td>{{ $category->name}}</td>
                             <td>
                                 <form action="{{ route('categories.destroy', $category->id) }}" method="POST">
-                                <a href="" class="btn btn-primary">Show</a>
+                                {{-- <a href="" class="btn btn-primary">Show</a> --}}
                                 <a href="{{ route('categories.edit', $category) }}" class="btn btn-success">Edit</a>
                                 @csrf
                                 @method('DELETE')

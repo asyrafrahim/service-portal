@@ -98,7 +98,8 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        return view('services.edit')->with(compact('service'));
+        $categories = Category::all();
+        return view('services.edit')->with(compact('service', 'categories'));
     }
 
     /**

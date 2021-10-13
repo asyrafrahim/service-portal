@@ -23,6 +23,7 @@
                         <th>Contact</th>
                         <th>Service</th>
                         <th>Date and Time</th>
+                        <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,7 +38,7 @@
                             
                             <td>
                                 <form action="{{ route('appointments.destroy', $appointment->id) }}" method="POST">
-                                <a href="" class="btn btn-primary">Show</a>
+                                {{-- <a href="" class="btn btn-primary">Show</a> --}}
                                 <a href="{{ route('appointments.edit', $appointment) }}" class="btn btn-success">Edit</a>
                                 @csrf
                                 @method('DELETE')

@@ -58,7 +58,7 @@ class AppointmentController extends Controller
      */
     public function show(Appointment $appointment)
     {
-        //
+        return view('appointments.show')->with(compact('appointment'));
     }
 
     /**

@@ -24,6 +24,7 @@
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th>Attachment</th>
+                                    <th>Action</th>
                                     {{-- <th>Attachment 2</th> --}}
                                     {{-- <th> action</th> --}}
                                 </tr>
@@ -49,7 +50,7 @@
                                         {{-- <td>{{ $service->user->name}}</td> --}}
                                         <td>
                                             <form action="{{ route('services.destroy', $service->id) }}" method="POST">
-                                                <a href="" class="btn btn-primary">Show</a>
+                                                {{-- <a href="" class="btn btn-primary">Show</a> --}}
                                                 <a href="{{ route('services.edit', $service) }}" class="btn btn-success">Edit</a>
                                                 @csrf
                                                 @method('DELETE')
