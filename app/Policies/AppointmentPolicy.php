@@ -30,7 +30,7 @@ class AppointmentPolicy
      */
     public function view(User $user, Appointment $appointment)
     {
-        //
+        return TRUE;
     }
 
     /**
@@ -41,7 +41,7 @@ class AppointmentPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->id > 0;
     }
 
     /**
@@ -53,7 +53,7 @@ class AppointmentPolicy
      */
     public function update(User $user, Appointment $appointment)
     {
-        //
+        return $user->id == $appointment->user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class AppointmentPolicy
      */
     public function delete(User $user, Appointment $appointment)
     {
-        //
+        return $user->id == $appointment->user_id;
     }
 
     /**

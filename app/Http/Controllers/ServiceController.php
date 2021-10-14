@@ -132,7 +132,7 @@ class ServiceController extends Controller
             // get current logged in user
             $user = Auth::user();
             
-            // load article
+            // load service
             $article = Service::find(1);
             
             if ($this->authorize('update', $service)) {
@@ -161,8 +161,8 @@ class ServiceController extends Controller
             // get current logged in user
             $user = Auth::user();
             
-            // load article
-            $article = Service::find(1);
+            // load service
+            $service = Service::find(1);
             
             if ($this->authorize('delete', $service)) {
                 echo "";

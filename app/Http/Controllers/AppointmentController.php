@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appointment;
 use App\Models\User;
 use App\Models\Service;
+use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AppointmentController extends Controller
 {
@@ -31,6 +32,15 @@ class AppointmentController extends Controller
      */
     public function create()
     {
+         // get current logged in user
+         $user = Auth::user();
+        
+         if ($this->authorize('create', Appointment::class)) {
+             echo '';
+         } else {
+             echo 'Not Authorized';
+         }
+        
         $services = Service::all();
         return view('appointments.create')->with(compact('services'));
     }
@@ -90,6 +100,19 @@ class AppointmentController extends Controller
         // $user->update($request->only('title','description','attachment_1','attachment_2'));
         // $appointment->update($request->only('title','description','attachment_1','attachment_2'));
         // $appointment->update($request->only('appointment_time'));
+        
+        // get current logged in user
+        $user = Auth::user();
+            
+        // load appointment
+        $article = Service::find(1);
+        
+        if ($this->authorize('update', $appointment)) {
+            echo "";
+        } else {
+            echo 'Not Authorized.';
+        }
+        
         $appointment->update($request->only('service_id', 'appointment_time'));
         return redirect()
             ->route('appointments.index')
@@ -104,6 +127,18 @@ class AppointmentController extends Controller
      */
     public function destroy(Appointment $appointment)
     {
+        // get current logged in user
+        $user = Auth::user();
+            
+        // load appointment
+        $appointment = Appointment::find(1);
+        
+        if ($this->authorize('delete', $appointment)) {
+            echo "";
+        } else {
+            echo 'Not Authorized.';
+        }
+        
         $appointment->delete();
 
         return redirect()->route('appointments.index')
