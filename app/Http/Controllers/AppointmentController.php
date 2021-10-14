@@ -105,7 +105,7 @@ class AppointmentController extends Controller
         $user = Auth::user();
             
         // load appointment
-        $article = Service::find(1);
+        // $appointment = Appointment::find(1);
         
         if ($this->authorize('update', $appointment)) {
             echo "";
@@ -113,7 +113,7 @@ class AppointmentController extends Controller
             echo 'Not Authorized.';
         }
         
-        $appointment->update($request->only('service_id', 'appointment_time'));
+        $appointment->update($request->only('service_id', 'appointment_time', 'address'));
         return redirect()
             ->route('appointments.index')
             ->with(['alert-type' => 'alert-success','alert'=> 'Appointment updated']);
@@ -131,7 +131,7 @@ class AppointmentController extends Controller
         $user = Auth::user();
             
         // load appointment
-        $appointment = Appointment::find(1);
+        // $appointment = Appointment::find(1);
         
         if ($this->authorize('delete', $appointment)) {
             echo "";

@@ -133,7 +133,7 @@ class ServiceController extends Controller
             $user = Auth::user();
             
             // load service
-            $article = Service::find(1);
+            // $article = Service::find(1);
             
             if ($this->authorize('update', $service)) {
                 echo "";
@@ -145,6 +145,18 @@ class ServiceController extends Controller
             $service->update($request->only('title','description'));
             $service->categories()->detach();
             $service->categories()->attach($request['category_id']);
+            if($request->hasFile('attachments'))
+        {
+            $service->clearMediaCollection('attachment_1');
+            foreach ($request->file('attachment_1', []) as $key => $file)
+            {
+
+                $service->addMedia($file)
+                        ->toMediaCollection('attachment_1');
+
+            }
+        }
+            
             return redirect()
             ->route('services.index')
             ->with(['alert-type' => 'alert-success','alert'=> 'Service updated']);
@@ -162,7 +174,7 @@ class ServiceController extends Controller
             $user = Auth::user();
             
             // load service
-            $service = Service::find(1);
+            // $service = Service::find(1);
             
             if ($this->authorize('delete', $service)) {
                 echo "";

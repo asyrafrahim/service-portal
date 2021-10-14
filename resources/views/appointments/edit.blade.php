@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <label for="title">Address</label>
-                            <input type="text" id="appointment_time" name="appointment_time" value="{{ $appointment->address }}">
+                            <input type="text" id="address" name="address" value="{{ $appointment->address }}">
                         </div>
                         <div class="form-group mt-4">
                             <button type="submit" class="btn btn-primary">Update Appointment</button>
