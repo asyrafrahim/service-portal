@@ -84,3 +84,4 @@ ii) Admin
         -View appointment, accept or reject appointment made by users.
 
 <p align="center"><img src="https://i.imgur.com/gNfTcRn.jpg"></a></p>
+<p align="center"><img src="https://i.imgur.com/Sd5Oyho.jpg"></a></p>
