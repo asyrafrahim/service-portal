@@ -14,7 +14,7 @@
                         @method('PUT')
                         <div class="form-group">
                             <label for="Services">Choose a category:</label>
-                            <select name="category_id[]" id="category_id" class='form-control' multiple>
+                            <select name="category_id[]" id="category_id" class='form-control' required autocomplete="title" multiple>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             <label for="title">Description</label>
-                            <textarea name="description" cols="20" rows="10" class="form-control">{{ $service->description }}</textarea>
+                            <textarea name="description" cols="20" rows="10" class="form-control">{{ $service->description }} </textarea>
                         </div>
                         {{-- <div class="form-group">
                             <label for="title">Attachment 1</label>

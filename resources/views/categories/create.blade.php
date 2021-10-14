@@ -12,7 +12,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="title">Name</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="name" required autocomplete="name">
                         </div>
                         
                         <div class="mt-4">

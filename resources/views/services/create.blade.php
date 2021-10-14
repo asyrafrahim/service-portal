@@ -12,7 +12,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="Services">Choose a category:</label>
-                            <select name="category_id[]" id="category_id" class='form-control' multiple>
+                            <select name="category_id[]" id="category_id" class='form-control' required autocomplete="category_id" max-items="2" multiple>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
@@ -20,11 +20,11 @@
                         </div>
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" class="form-control" name="title">
+                            <input type="text" class="form-control" name="title" required autocomplete="title">
                         </div>
                         <div class="form-group">
                             <label for="title">Description</label>
-                            <textarea name="description" cols="20" rows="10" class="form-control"></textarea>
+                            <textarea name="description" cols="20" rows="10" class="form-control" required autocomplete="description"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="title">Attachment</label>

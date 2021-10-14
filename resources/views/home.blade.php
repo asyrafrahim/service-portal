@@ -14,6 +14,16 @@
                         </div>
                     @endif
 
+                    @can('isAdmin')
+                    <div class="btn btn-success btn-lg">
+                      Admin Access
+                    </div>
+                    @else
+                    <div class="btn btn-info btn-lg">
+                      User Access
+                    </div>
+                @endcan
+
                     {{ __('You are logged in!') }}
                 </div>
             </div>

@@ -22,11 +22,11 @@
 
                         <div class="form-group">
                             <label for="title">Date and Time</label>
-                            <input type="datetime-local" id="appointment_time" name="appointment_time">
+                            <input type="datetime-local" id="appointment_time" name="appointment_time" required autocomplete="appointment_time">
                         </div>
                         <div class="form-group">
                             <label for="address">Address</label>
-                            <input type="text" id="address" name="address">
+                            <input type="text" id="address" name="address" required autocomplete="address">
                         </div>
                         
                         <div class="mt-4">

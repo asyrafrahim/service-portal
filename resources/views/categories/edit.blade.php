@@ -14,7 +14,7 @@
                         @method('PUT')
                         <div class="form-group">
                             <label for="title">Name</label>
-                            <input type="text" class="form-control" name="name" value="{{ $category->name }}">
+                            <input type="text" class="form-control" name="name" required autocomplete="name" value="{{ $category->name }}">
                         </div>
                         
                         <div class="form-group mt-4">
