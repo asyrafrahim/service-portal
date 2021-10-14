@@ -30,3 +30,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('services', ServiceController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('appointments', AppointmentController::class);
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');

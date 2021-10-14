@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
+                    {{-- @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
@@ -22,7 +22,7 @@
                     <div class="btn btn-info btn-lg">
                       User Access
                     </div>
-                @endcan
+                @endcan --}}
 
                     {{ __('You are logged in!') }}
                 </div>
