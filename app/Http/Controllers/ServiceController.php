@@ -32,6 +32,15 @@ class ServiceController extends Controller
     */
     public function create()
     {
+        // get current logged in user
+        $user = Auth::user();
+        
+        if ($this->authorize('create', Service::class)) {
+            echo '';
+        } else {
+            echo 'Not Authorized';
+        }
+        
         $categories = Category::all();
         return view('services.create')->with(compact('categories'));
     }
@@ -120,6 +129,18 @@ class ServiceController extends Controller
         */
         public function update(Request $request, Service $service)
         {
+            // get current logged in user
+            $user = Auth::user();
+            
+            // load article
+            $article = Service::find(1);
+            
+            if ($this->authorize('update', $service)) {
+                echo "";
+            } else {
+                echo 'Not Authorized.';
+            }
+            
             // $service->update($request->only('title','description','attachment_1','attachment_2'));
             $service->update($request->only('title','description'));
             $service->categories()->detach();
@@ -137,6 +158,18 @@ class ServiceController extends Controller
         */
         public function destroy(Service $service)
         {
+            // get current logged in user
+            $user = Auth::user();
+            
+            // load article
+            $article = Service::find(1);
+            
+            if ($this->authorize('delete', $service)) {
+                echo "";
+            } else {
+                echo 'Not Authorized.';
+            }
+            
             $service->categories()->detach();
             $service->delete();
             

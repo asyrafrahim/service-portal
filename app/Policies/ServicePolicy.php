@@ -30,7 +30,7 @@ class ServicePolicy
      */
     public function view(User $user, Service $service)
     {
-        //
+        return TRUE;
     }
 
     /**
@@ -41,7 +41,7 @@ class ServicePolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->id > 0;
     }
 
     /**
@@ -53,7 +53,7 @@ class ServicePolicy
      */
     public function update(User $user, Service $service)
     {
-        //
+        return $user->id == $service->user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class ServicePolicy
      */
     public function delete(User $user, Service $service)
     {
-        //
+        return $user->id == $service->user_id;
     }
 
     /**
