@@ -83,6 +83,7 @@ class AppointmentController extends Controller
      */
     public function edit(Appointment $appointment)
     {
+        $this->authorize('update', $appointment);
         $services = Service::all();
         // $appointments = Appointment::all();
         return view('appointments.edit')->with(compact('appointment', 'services'));

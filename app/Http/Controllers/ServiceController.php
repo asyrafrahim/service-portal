@@ -66,7 +66,7 @@ class ServiceController extends Controller
         
         $request->validate([
             'title'         =>      'required',
-            'description'          =>      'required',
+            'description'   =>      'required',
             
         ]);
         $service = new Service();
@@ -77,13 +77,12 @@ class ServiceController extends Controller
         $service->save();
         $service->categories()->attach($request['category_id']);
         
-        foreach ($request->file('attachment_1', []) as $key => $file)
-        {
-            $service->addMedia($file)
+        if ($request->hasFile('attachment_1')) {
+            foreach ($request->file('attachment_1', []) as $key => $file) {
+                $service->addMedia($file)
             ->toMediaCollection('attachment_1');
-            
+            }
         }
-        
         // if($request->hasFile('attachment_1') && $request->file('attachment_1')->isValid()) 
         // {
             
@@ -116,6 +115,7 @@ class ServiceController extends Controller
         */
         public function edit(Service $service)
         {
+            $this->authorize('update', $service);
             $categories = Category::all();
             return view('services.edit')->with(compact('service', 'categories'));
         }
@@ -141,21 +141,9 @@ class ServiceController extends Controller
                 echo 'Not Authorized.';
             }
             
-            // $service->update($request->only('title','description','attachment_1','attachment_2'));
             $service->update($request->only('title','description'));
             $service->categories()->detach();
             $service->categories()->attach($request['category_id']);
-            if($request->hasFile('attachments'))
-        {
-            $service->clearMediaCollection('attachment_1');
-            foreach ($request->file('attachment_1', []) as $key => $file)
-            {
-
-                $service->addMedia($file)
-                        ->toMediaCollection('attachment_1');
-
-            }
-        }
             
             return redirect()
             ->route('services.index')
