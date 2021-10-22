@@ -33,13 +33,6 @@ class CategoryController extends Controller
         // get current logged in user
         $user = Auth::user();
         
-        // if ($this->authorize('create', Category::class)) {
-        //     echo 'Current logged in user is allowed to create new category.';
-        // } else {
-        //     echo 'Not Authorized';
-        // }
-        
-        
         return view('categories.create');
     }
     
@@ -94,14 +87,6 @@ class CategoryController extends Controller
         // get current logged in user
         $user = Auth::user();
         
-        // load category
-        $article = Category::find(1);
-        
-        // if ($this->authorize('update', $category)) {
-        //     echo "Current logged in user is allowed to update the Category: {$article->id}";
-        // } else {
-        //     echo 'Not Authorized.';
-        // }
         $category->update($request->only('name'));
         return redirect()
         ->route('categories.index')
@@ -118,15 +103,6 @@ class CategoryController extends Controller
     {
         // get current logged in user
         $user = Auth::user();
-        
-        // load category
-        $article = Category::find(1);
-        
-        // if ($this->authorize('delete', $category)) {
-        //     echo "Current logged in user is allowed to delete the Category: {$article->id}";
-        // } else {
-        //     echo 'Not Authorized.';
-        // }
         
         $category->delete();
         

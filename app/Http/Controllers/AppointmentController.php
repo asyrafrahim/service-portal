@@ -98,9 +98,6 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, Appointment $appointment)
     {
-        // $user->update($request->only('title','description','attachment_1','attachment_2'));
-        // $appointment->update($request->only('title','description','attachment_1','attachment_2'));
-        // $appointment->update($request->only('appointment_time'));
         
         // get current logged in user
         $user = Auth::user();
